@@ -9,7 +9,7 @@
 
 <div align="center">
 
-# explain-complex-concepts
+# no-bull-explain
 
 一款给 AI 编程助手（Claude Code、OpenAI Codex Copilot）用的教学技能，帮你低认知负担地解释复杂概念。
 
@@ -45,14 +45,14 @@
 ### Claude Code
 
 ```bash
-npx skills add ClearDreemurr/explain-complex-concepts
+npx skills add ClearDreemurr/no-bull-explain
 ```
 
 或者手动：
 
 ```bash
-mkdir -p ~/.claude/skills/explain-complex-concepts
-cp SKILL.md ~/.claude/skills/explain-complex-concepts/
+mkdir -p ~/.claude/skills/no-bull-explain
+cp SKILL.md ~/.claude/skills/no-bull-explain/
 ```
 
 > 英文版请复制 `SKILL.en.md`。
@@ -66,7 +66,7 @@ cp SKILL.md ~/.claude/skills/explain-complex-concepts/
 安装后在 Claude Code 中直接调用：
 
 ```
-/explain-complex-concepts
+/no-bull-explain
 ```
 
 或者让 AI 自动判断你的请求是否匹配该技能。
@@ -109,7 +109,7 @@ cp SKILL.md ~/.claude/skills/explain-complex-concepts/
 ## 文件结构
 
 ```
-explain-complex-concepts/
+no-bull-explain/
 ├── SKILL.md              ← 技能定义（中文）
 ├── SKILL.en.md           ← 技能定义（英文）
 ├── README.md             ← 本文件（英文）

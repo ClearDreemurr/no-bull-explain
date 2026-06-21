@@ -9,7 +9,7 @@
 
 <div align="center">
 
-# explain-complex-concepts
+# no-bull-explain
 
 A teaching skill for AI coding agents that explains complex concepts with low cognitive load.
 
@@ -45,14 +45,14 @@ Use this skill whenever someone asks you to **explain, teach, simplify, clarify,
 ### Claude Code
 
 ```bash
-npx skills add ClearDreemurr/explain-complex-concepts
+npx skills add ClearDreemurr/no-bull-explain
 ```
 
 Or manually:
 
 ```bash
-mkdir -p ~/.claude/skills/explain-complex-concepts
-cp SKILL.md ~/.claude/skills/explain-complex-concepts/
+mkdir -p ~/.claude/skills/no-bull-explain
+cp SKILL.md ~/.claude/skills/no-bull-explain/
 ```
 
 > For the English version, use `SKILL.en.md` instead.
@@ -66,7 +66,7 @@ Install via `~/.codes/skills/` using the `agents/openai.yaml` config.
 Once installed, simply invoke the skill in Claude Code:
 
 ```
-/explain-complex-concepts
+/no-bull-explain
 ```
 
 Or let the AI auto-detect when your request fits the skill's purpose.
@@ -109,7 +109,7 @@ The skill operates on two levels:
 ## Files
 
 ```
-explain-complex-concepts/
+no-bull-explain/
 ├── SKILL.md              ← Skill definition (Chinese)\
 ├── SKILL.en.md           ← Skill definition (English)
 ├── README.md             ← This file (English)

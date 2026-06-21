@@ -1,5 +1,5 @@
 ---
-name: explain-complex-concepts
+name: no-bull-explain
 description: Explain complex concepts with low cognitive load by unloading jargon first, building a no-variable intuitive scene, deriving the mechanism from a concrete failure, using local dynamic reasoning before formulas, mapping back to real terms, and ending with a demystified compact definition. Use for explaining, teaching, simplifying, clarifying, or rewriting difficult ideas for a specific audience.
 ---
 

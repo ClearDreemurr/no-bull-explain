@@ -1,0 +1,9 @@
+# Normalize line endings — all text files to LF on check-in, OS-native on checkout.
+* text=auto
+
+# Explicitly force LF for all source files (cross-platform consistency)
+*.md text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
+*.json text eol=lf
+*.sh text eol=lf
