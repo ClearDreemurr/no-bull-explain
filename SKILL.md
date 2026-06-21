@@ -1,18 +1,6 @@
 ---
 name: explain-complex-concepts-v0.3
-description: >-
-  Explain complex concepts with low cognitive load by unloading jargon first,
-  building a no-variable intuitive scene, deriving the mechanism from a concrete
-  failure, using local dynamic reasoning before formulas, mapping back to real
-  terms, and ending with a demystified compact definition. Use for explaining,
-  teaching, simplifying, clarifying, or rewriting difficult ideas for a specific
-  audience.
-license: MIT
-compatibility: Claude Code, OpenAI Codex Copilot
-metadata:
-  author: ClearDreemurr
-  version: 0.3
-  tags: teaching explanation clarification learning communication
+description: Explain complex concepts with low cognitive load by unloading jargon first, building a no-variable intuitive scene, deriving the mechanism from a concrete failure, using local dynamic reasoning before formulas, mapping back to real terms, and ending with a demystified compact definition. Use for explaining, teaching, simplifying, clarifying, or rewriting difficult ideas for a specific audience.
 ---
 
 # 清晰解释复杂概念
