@@ -1,5 +1,5 @@
 ---
-name: explain-complex-concepts-v0.3
+name: explain-complex-concepts
 description: Explain complex concepts with low cognitive load by unloading jargon first, building a no-variable intuitive scene, deriving the mechanism from a concrete failure, using local dynamic reasoning before formulas, mapping back to real terms, and ending with a demystified compact definition. Use for explaining, teaching, simplifying, clarifying, or rewriting difficult ideas for a specific audience.
 ---
 
@@ -18,25 +18,6 @@ The goal is not to recite terminology, but to help users build an accurate menta
 7. **Give a demystified definition** — ground it in data, state, rules, parameters, flow, permissions, cache, or mapping.
 8. **Explain the simplification boundary** — where does this analogy, model, or derivation break down? Use this to naturally introduce the next round of explanation.
 
-## Explanation Toolkit
-
-Find the minimal mechanism first. Then pick a tool based on what the user is stuck on:
-
-- **Everyday analogy** — use when the user needs to understand roles, collaboration, permissions, resource allocation, trust, or delegation. The analogy must be structurally isomorphic. After the analogy, always map back to the real mechanism.
-- **Step-by-step reasoning** — use for data flow, state changes, algorithms, protocols, system architecture, or time-based sequences. Start by making one object move with text-based visualization, then generalize to the whole system.
-- **Information restructuring** — use when the difficulty is too many terms, branching complexity, or mixed-up concept families. Group similar items first, then explain what makes each group different.
-- **Formula or code decomposition** — use when the user needs formulas, code, configuration items, or implementation symbols. First describe the action role and variable meaning in plain language, then give the symbols, and map each one back to the scene one by one.
-
-## Anti-Jargon Rules
-
-- Don't start with implementation symbols. Variable names, function names, class names, config keys, file paths, module names, formulas, and subscripts come later. Don't open with `dp[i][j]`, `FooService.handle()`, or `config.xxx`.
-- Trace one observable flow first: one request, one message, one user action, one input sample, one file, one transaction, one state change. Walk chronologically through how it enters the system, who catches it, what it gets transformed into, where it flows, and what result it produces.
-- When an implementation symbol first appears, translate it into its action role: `ctx` is the small bag the request carries; `middleware` is the checkpoint the request queues through before entering; `dp[i][j]` is the best result possible after taking this many steps with these resources used.
-- Don't show the full table, complete architecture, or all states up front. First show why one object breaks, then generalize.
-- Light demystification is welcome ("this optimization saves space but creates a coverage headache").
-- Let the user see the naive approach fail first, then introduce the term. Terms should be the name of a solved problem, not the opening line.
-- If the user has existing knowledge, use it only to calibrate terminology density or make one bridging sentence. Don't let familiar concepts hijack the main thread — the thread should always return to the minimal local structure of the current problem.
-
 ## Text-Based Dynamic Reasoning
 
 When the difficulty comes from computation processes, spatial relationships, state changes, or temporal sequences, use text to recreate the cognitive effect of "dynamic visualization." The goal is not to describe a picture, but to let the user stably track how one object changes.
@@ -50,31 +31,52 @@ Use these techniques:
 - **Frame-by-frame timing** — for sequential processes, show state changes as "Step 1 / Step 2 / Step 3." Each step introduces exactly one change — don't collapse multiple transitions into a single sentence.
 - **Input-output closure** — when explaining recursion, generation, or loops, explicitly write "the output of this step becomes the input of the next step." Closure prevents the user from seeing isolated steps without understanding why the process continues.
 
-Avoid sacrificing accuracy for visual flair; avoid tracking multiple moving objects at once; avoid anthropomorphism in place of real mechanisms.
+Minor accuracy trade-offs are allowed for the sake of visual clarity; avoid tracking multiple moving objects at once; avoid anthropomorphism in place of real mechanisms.
 
-## Rules & Prohibitions
+## Conversational Throttling
 
-- Start from the minimal mechanism, not the full architecture diagram.
-- Complete the logic first, then name the term. A term should be the name of a solved problem.
+Don't explain the full chain at once. Actively pause after one frame, confirm the user is following, then proceed. No wall-of-text up front.
+
+- Deliver one minimal action or cognitive point per turn, then ask a low-effort question: "Would you buy or wait at this step?", "Can this window still move right?", "Where does this request go next?" Then stop and wait — don't continue explaining.
+- After the user answers, acknowledge their response before advancing to the next frame. Don't ignore the answer and continue reciting a prepared lecture.
+- Unless the user asks for a complete walkthrough, advance at most 1–2 local actions per pause for complex algorithms, code, or system explanations.
+- Long answers should also be delivered in segments — avoid dumping a complete formula, code block, mapping table, and boundary conditions in one shot.
+- If the user explicitly asks for the full explanation in one go, you may skip intermediate confirmations, but still control reading burden with short paragraphs and small reasoning steps.
+- Before presenting a formula, describe it in natural language first: "Each day, compare two numbers — the best result you've ever recorded, and the result you'd get by doing it today's way. Keep whichever is larger" → then map to `best = max(best, today)`.
+- After a formula or code block appears, always do term mapping: map each natural object back to its variable, function, state, or module. Don't rush through the closing.
+
+## Explanation Toolkit
+
+**Default mode**: First determine if the concept involves processes, state changes, spatial relationships, or temporal sequences. If so, you MUST use "step-by-step reasoning + ASCII art dynamic visualization." Skipping visualization is not allowed.
+
+Optional add-on tools based on the type of difficulty:
+
+- **Everyday analogy** — use when the user needs to understand roles, collaboration, permissions, resource allocation, trust, or delegation. The analogy must be structurally isomorphic. After the analogy, always map back to the real mechanism.
+- **Step-by-step reasoning** — use for data flow, state changes, algorithms, protocols, system architecture, or time-based sequences. Start by making one object move with text-based visualization, then generalize to the whole system.
+- **Information restructuring** — use when the difficulty is too many terms, branching complexity, or mixed-up concept families. Group similar items first, then explain what makes each group different.
+- **Formula or code decomposition** — use when the user needs formulas, code, configuration items, or implementation symbols. First describe the action role and variable meaning in plain language, then give the symbols, and map each one back to the scene one by one.
+
+## Anti-Jargon Rules
+
+- Don't start with implementation symbols. Variable names, function names, class names, config keys, file paths, module names, formulas, and subscripts come later. Don't open with `dp[i][j]`, `FooService.handle()`, or `config.xxx`.
+- Trace one observable flow first: one request, one message, one user action, one input sample, one file, one transaction, one state change. Walk chronologically through how it enters the system, who catches it, what it gets transformed into, where it flows, and what result it produces.
+- **Visual reasoning is mandatory**: whenever the concept involves processes (how something changes), state changes (before vs after), spatial relationships (where to where), or temporal sequences (what happens first), you MUST use ASCII art visualization to reason through it. Flat narrative descriptions are forbidden.
+- When an implementation symbol first appears, translate it into its action role: `ctx` is the small bag the request carries; `middleware` is the checkpoint the request queues through before entering; `dp[i][j]` is the best result possible after taking this many steps with these resources used.
+- Don't show the full table, complete architecture, or all states up front. First show why one object breaks, then generalize.
+- Light demystification is welcome ("this optimization saves space but creates a coverage headache").
+- Let the user see the naive approach fail first, then introduce the term. Terms should be the name of a solved problem, not the opening line.
+- If the user has existing knowledge, use it only to calibrate terminology density or make one bridging sentence. Don't let familiar concepts hijack the main thread — the thread should always return to the minimal local structure of the current problem.
+
+## Prohibitions
+
+- Don't start with the full architecture.
+- Don't throw out technical terms before the complete scene has been explained.
 - Prioritize explaining *why this design exists*, not just *what the acronym stands for*.
 - After an analogy or reasoning walkthrough, always return to the real terminology and real mechanism.
 - Simplification is not dumbing down. The mechanism can be plain; the engineering implementation can still be hard.
 - Adjust terminology density to the user's level — don't stay at the same conversational level forever.
 - Avoid clever-but-structurally-inaccurate analogies, long stories that never map back to technical concepts, forced one-to-one correspondence, and explaining terms with other terms.
 - Don't use words like "intelligence", "understanding", or "learns automatically" as substitutes for real mechanisms. When you can say matching, sampling, optimization, caching, mapping, or state transition, don't stop at magic words.
-
-## Conversational Throttling
-
-Don't explain the full chain at once. Actively pause after one frame, confirm the user is following, then proceed.
-
-- Deliver one minimal action or cognitive point per turn, then ask a low-effort question: "Would you buy or wait at this step?", "Can this window still move right?", "Where does this request go next?" Then stop and wait for the user's reply.
-- After the user answers, acknowledge their response before advancing to the next frame. Don't ignore the answer and continue reciting a prepared lecture.
-- If the user is clearly keeping up, you can accelerate. If they're stuck, retreat to the low-config scene or local action — don't pile on more terminology, formulas, or code.
-- Unless the user asks for a complete walkthrough, advance at most 1–2 local actions per pause for complex algorithms, code, or system explanations.
-- Long answers should also be delivered in segments — avoid dumping a complete formula, code block, mapping table, and boundary conditions in one shot.
-- If the user explicitly asks for the full explanation in one go, you may skip intermediate confirmations, but still control reading burden with short paragraphs and small reasoning steps.
-- Before presenting a formula, describe it in natural language first: "Each day, compare two numbers — the best result you've ever recorded, and the result you'd get by doing it today's way. Keep whichever is larger" → then map to `best = max(best, today)`.
-- After a formula or code block appears, always do term mapping: map each natural object back to its variable, function, state, or module. Don't rush through the closing.
 
 ## Response Structure
 
@@ -83,7 +85,7 @@ General structure:
 1. Forget the terms — strip variable names, function names, class names, config items, formulas, subscripts, and full definitions.
 2. Low-config scene — set up the problem with object-level, variable-free language.
 3. How the naive approach breaks — let the user see the concrete failure.
-4. Watch one local action — one cell, one state, one object moves first.
+4. Watch one local action — use ASCII art visualization to make one cell, one state, one object move.
 5. Pause and confirm — only generalize once the user is following.
 6. Map to real terminology.
 7. If needed, describe formula or code logic in natural language first, then give the implementation symbols, and explain each symbol's role in the flow.
@@ -102,6 +104,7 @@ Before answering, check:
 - Before implementation symbols or formulas appear, has their action role been clearly described in natural language?
 - Is the analogy or dynamic reasoning structurally accurate and properly mapped back to real mechanisms and terms?
 - Is the final definition demystified and genuinely easier to remember?
+- Does the current explanation involve processes, state changes, spatial relationships, or temporal sequences? If so, has visualization been used instead of flat narrative?
 
 ## Few-shot Example
 
@@ -132,7 +135,7 @@ You have an ordered stack of notes. Your deskmate's "at most 5 more" is like a s
 └---- can send at most 5 ----┘
 ```
 
-> Annotation: spatial externalization; show the range first.
+> Annotation: spatial externalization visualization.
 
 This range that marks which notes you can send is called a **window**; the number of notes it can hold — the 5 from earlier — is called the **window size**.
 
@@ -148,7 +151,7 @@ This range that marks which notes you can send is called a **window**; the numbe
           sent up to #3
 ```
 
-> Annotation: local dynamic reasoning; track one action.
+> Annotation: local visualization; track one action.
 
 **Frame 2:** When you've sent all 5 notes, the progress pointer hits the window boundary.
 
