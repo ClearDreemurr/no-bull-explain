@@ -79,6 +79,15 @@ cp SKILL.md ~/.claude/skills/explain-complex-concepts/
 
 完整推演见 [examples/sliding-window.md](examples/sliding-window.md)。
 
+### 效果展示
+
+[examples/](examples/) 目录下有多篇由本 skill 实际生成的完整教学对话，可以直接看到效果：
+
+| 示例 | 主题 |
+|---|---|
+| [N₂O₄ 化学平衡](examples/n2o4-chemical-equilibrium.md) | 勒夏特列原理——为什么压缩容器会让平衡移动 |
+| [CPU 缓存与局部性原理](examples/缓存与局部性原理详解.md) | 为什么缓存不是越大越好，改一行代码怎么快 200 倍 |
+
 ## 它怎么工作
 
 技能分两个层次：
@@ -109,7 +118,9 @@ explain-complex-concepts/
 ├── agents/
 │   └── openai.yaml       ← OpenAI Codex Copilot 集成配置
 └── examples/
-    └── sliding-window.md ← 完整推演：TCP 滑动窗口
+    ├── sliding-window.md            ← TCP 滑动窗口（few-shot 模板）
+    ├── n2o4-chemical-equilibrium.md ← 化学平衡 · 勒夏特列原理
+    └── 缓存与局部性原理详解.md       ← CPU 缓存与局部性原理
 ```
 
 ## 许可证

@@ -79,6 +79,15 @@ Or let the AI auto-detect when your request fits the skill's purpose.
 
 See [examples/sliding-window.md](examples/sliding-window.md) for the full walkthrough.
 
+### See It in Action
+
+Browse the [examples/](examples/) directory to see full teaching conversations produced by this skill:
+
+| Example | Topic |
+|---|---|
+| [N₂O₄ Chemical Equilibrium](examples/n2o4-chemical-equilibrium.md) | Le Chatelier's principle — why compressing a gas shifts the balance |
+| [CPU Cache & Locality](examples/缓存与局部性原理详解.md) | Why bigger isn't faster, how cache hierarchy works, and how one line change makes code 200× faster |
+
 ## How It Works
 
 The skill operates on two levels:
@@ -109,7 +118,9 @@ explain-complex-concepts/
 ├── agents/
 │   └── openai.yaml       ← OpenAI Codex Copilot integration
 └── examples/
-    └── sliding-window.md ← Full walkthrough: TCP sliding window explained
+    ├── sliding-window.md            ← TCP sliding window (few-shot template)
+    ├── n2o4-chemical-equilibrium.md ← Le Chatelier's principle walkthrough
+    └── 缓存与局部性原理详解.md       ← CPU cache & locality walkthrough
 ```
 
 ## License
