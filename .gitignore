@@ -14,3 +14,6 @@ Desktop.ini
 __pycache__/
 *.pyc
 .env
+
+# examples
+examples_v*/
