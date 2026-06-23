@@ -17,3 +17,6 @@ __pycache__/
 
 # examples
 examples_v*/
+
+# docs
+doc/
