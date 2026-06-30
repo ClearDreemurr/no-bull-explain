@@ -16,7 +16,7 @@ __pycache__/
 .env
 
 # examples
-examples_v*/
+*.pdf
 
 # docs
 doc/
